@@ -1,0 +1,16 @@
+.container{
+    border: 5px solid red;
+    height: 800px;
+    width: 800px;
+    margin: 25px auto;
+    display: flex;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.square{
+    border: 1px dotted black;
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: column;
+}
