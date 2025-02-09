@@ -1,4 +1,5 @@
 let container = document.querySelector(".container");
+let randomColor = Math.random()*360;
 
 // Create a grid of NxN
 for (i = 0; i < 16; i++){
@@ -13,7 +14,15 @@ for (i = 0; i < 16; i++){
     };
 };
 
-// Create reset button
+// Event triggering on mouse over using a fixed colour
+let allSquares = document.querySelectorAll(".row");
+allSquares.forEach((square) => {
+    square.addEventListener('mouseenter', () => {
+      square.style.backgroundColor = `hsl(${randomColor}, 100%, 50%)`;
+    });
+  });
+
+// Reset button
 reset = document.querySelector(".reset");
 reset.addEventListener('click', () =>{
     console.log("clicked");
@@ -41,7 +50,7 @@ reset.addEventListener('click', () =>{
         let allSquares = document.querySelectorAll(".row");
         allSquares.forEach((square) => {
             square.addEventListener('mouseenter', () => {
-              square.style.backgroundColor = `hsl(${RANDOMCOLOUR}, 100%, 50%)`;
+              square.style.backgroundColor = `hsl(${randomColor}, 100%, 50%)`;
             });
           });
 
@@ -51,21 +60,27 @@ reset.addEventListener('click', () =>{
 }
 );
 
-// Event triggering on mouse over using a fixed colour
-const RANDOMCOLOUR = Math.random()*360;
-let allSquares = document.querySelectorAll(".row");
-allSquares.forEach((square) => {
-    square.addEventListener('mouseenter', () => {
-      square.style.backgroundColor = `hsl(${RANDOMCOLOUR}, 100%, 50%)`;
+// Change colour button
+changeColor = document.querySelector(".changeColor");
+changeColor.addEventListener('click', () => {
+    randomColor = Math.random()*360;
+    let allSquares = document.querySelectorAll(".row");
+    allSquares.forEach((square) => {
+        square.addEventListener('mouseenter', () => {
+            square.style.backgroundColor = `hsl(${randomColor}, 100%, 50%)`;
+        });
     });
-  });
+});
 
-// Event triggering on mouse over using a random colour
-// let allSquares = document.querySelectorAll(".row");
-// allSquares.forEach((square) => {
-//     square.addEventListener('mouseenter', () => {
-//       square.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
-//     });
-//   });
+// Use random colours throughout
+random = document.querySelector(".random");
+random.addEventListener('click', () => {
+    let allSquares = document.querySelectorAll(".row");
+    allSquares.forEach((square) => {
+        square.addEventListener('mouseenter', () => {
+            square.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 50%)`;
+        });
+    });
+});
 
 
