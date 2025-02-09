@@ -25,9 +25,7 @@ allSquares.forEach((square) => {
 // Reset button
 reset = document.querySelector(".reset");
 reset.addEventListener('click', () =>{
-    console.log("clicked");
     let userChoice = prompt("How many squares?");
-    console.log(userChoice);
     if (userChoice > 0 && userChoice < 101){
 
         let allColumns = document.querySelectorAll(".column");
@@ -68,6 +66,19 @@ changeColor.addEventListener('click', () => {
     allSquares.forEach((square) => {
         square.addEventListener('mouseenter', () => {
             square.style.backgroundColor = `hsl(${randomColor}, 100%, 50%)`;
+        });
+    });
+});
+
+//Progressive colours
+progressiveColor = document.querySelector(".progressive");
+progressiveColor.addEventListener('click', () => {
+    let allSquares = document.querySelectorAll(".row");
+    allSquares.forEach((square) => {
+        let counter = 0;
+        square.addEventListener('mouseenter', () => {
+            counter++;
+            square.style.backgroundColor = `hsl(${randomColor}, 100%, 50%, ${counter/10})`;
         });
     });
 });
